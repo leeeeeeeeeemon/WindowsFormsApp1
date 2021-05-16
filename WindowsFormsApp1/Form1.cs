@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
         {
             var paper = panel1.CreateGraphics();
             var pen = new Pen(Color.Aqua, 5);
-            paper.DrawEllipse(pen, Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text), Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox1.Text));
+            paper.DrawEllipse(pen, Convert.ToInt32(circleX.Text), Convert.ToInt32(circleY.Text), Convert.ToInt32(circleRadius.Text), Convert.ToInt32(circleRadius.Text));
 
         }
 
@@ -44,7 +44,7 @@ namespace WindowsFormsApp1
         {
             var paper = panel1.CreateGraphics();
             var pen = new Pen(Color.Aqua, 5);
-            paper.DrawEllipse(pen, e.X, e.Y, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox1.Text));
+            paper.DrawEllipse(pen, e.X, e.Y, Convert.ToInt32(circleRadius.Text), Convert.ToInt32(circleRadius.Text));
 
         }
     }
