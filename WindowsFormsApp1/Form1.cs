@@ -26,26 +26,64 @@ namespace WindowsFormsApp1
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Click(object sender, EventArgs e)
-        {
-            }
-
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
             var paper = panel1.CreateGraphics();
             var pen = new Pen(Color.Aqua, 5);
             paper.DrawEllipse(pen, e.X, e.Y, Convert.ToInt32(circleRadius.Text), Convert.ToInt32(circleRadius.Text));
 
+        }
+
+        private void LineCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            CircleCheck.Checked = false;
+            TriangleCheck.Checked = false;
+            rectangleCheck.Checked = false;
+        }
+
+        private void lineDrawButton_Click(object sender, EventArgs e)
+        {
+            var paper = panel1.CreateGraphics();
+            var pen = new Pen(Color.Aqua, 5);
+            paper.DrawLine(pen, Convert.ToInt32(LineX.Text), Convert.ToInt32(LineY.Text), Convert.ToInt32(LineX2.Text), Convert.ToInt32(LineY2.Text));
+        }
+
+        private void TriangleButton_Click(object sender, EventArgs e)
+        {
+            var paper = panel1.CreateGraphics();
+            var pen = new Pen(Color.Aqua, 5);
+            paper.DrawLine(pen, Convert.ToInt32(triangleX.Text), Convert.ToInt32(triangleY.Text), Convert.ToInt32(triangleX2.Text), Convert.ToInt32(triangleY2.Text));
+            paper.DrawLine(pen, Convert.ToInt32(triangleX2.Text), Convert.ToInt32(triangleY2.Text), Convert.ToInt32(triangleX3.Text), Convert.ToInt32(triangleY3.Text));
+            paper.DrawLine(pen, Convert.ToInt32(triangleX3.Text), Convert.ToInt32(triangleY3.Text), Convert.ToInt32(triangleX.Text), Convert.ToInt32(triangleY.Text));
+        }
+
+        private void rectangleButton_Click(object sender, EventArgs e)
+        {
+            var paper = panel1.CreateGraphics();
+            var pen = new Pen(Color.Aqua, 5);
+            paper.DrawRectangle(pen, Convert.ToInt32(rectangleX.Text), Convert.ToInt32(rectangleY.Text), Convert.ToInt32(rectangleWidth.Text), Convert.ToInt32(rectangleHeight.Text));
+        }
+
+        private void CircleCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            LineCheck.Checked = false;
+            TriangleCheck.Checked = false;
+            rectangleCheck.Checked = false;
+        }
+
+        private void TriangleCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            CircleCheck.Checked = false;
+            LineCheck.Checked = false;
+            rectangleCheck.Checked = false;
+        }
+
+        private void rectangleCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            CircleCheck.Checked = false;
+            TriangleCheck.Checked = false;
+            LineCheck.Checked = false;
+            
         }
     }
 }
