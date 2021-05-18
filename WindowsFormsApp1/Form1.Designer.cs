@@ -76,6 +76,8 @@ namespace WindowsFormsApp1
             this.rectangleCheck = new System.Windows.Forms.CheckBox();
             this.rectangleText = new System.Windows.Forms.Label();
             this.rectangleButton = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.saveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // circleButton
@@ -515,11 +517,25 @@ namespace WindowsFormsApp1
             this.rectangleButton.UseVisualStyleBackColor = true;
             this.rectangleButton.Click += new System.EventHandler(this.rectangleButton_Click);
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(705, 439);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 18;
+            this.saveButton.Text = "save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 539);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.rectangleButton);
             this.Controls.Add(this.rectangleText);
             this.Controls.Add(this.rectangleCheck);
@@ -624,6 +640,8 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.CheckBox rectangleCheck;
         private System.Windows.Forms.Label rectangleText;
         private System.Windows.Forms.Button rectangleButton;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button saveButton;
     }
 }
 
