@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +19,8 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
-            int x = Screen.PrimaryScreen.WorkingArea.Width;
-            int y = Screen.PrimaryScreen.WorkingArea.Height;
-            this.Width = x;
-            this.Height = y;
-            
 
+            colorBut.BackColor = colorDialog1.Color;
             draw = new Bitmap(board.Width, board.Height);
             drawList = Graphics.FromImage(draw);
         }
@@ -30,7 +28,7 @@ namespace WindowsFormsApp1
         private void circleButton_Click(object sender, EventArgs e)
         {
             var paper = board.CreateGraphics();
-            var pen = new Pen(Color.Aqua, Convert.ToInt32(PenWidth.Text));
+            var pen = new Pen(colorDialog1.Color, Convert.ToInt32(PenWidth.Text));
             paper.DrawEllipse(pen, Convert.ToInt32(circleX.Text), Convert.ToInt32(circleY.Text), Convert.ToInt32(circleRadius.Text), Convert.ToInt32(circleRadius.Text));
 
         }
@@ -38,7 +36,7 @@ namespace WindowsFormsApp1
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
             var paper = board.CreateGraphics();
-            var pen = new Pen(Color.Aqua, Convert.ToInt32(PenWidth.Text));
+            var pen = new Pen(colorDialog1.Color, Convert.ToInt32(PenWidth.Text));
             paper.DrawEllipse(pen, e.X, e.Y, Convert.ToInt32(circleRadius.Text), Convert.ToInt32(circleRadius.Text));
 
         }
@@ -53,14 +51,14 @@ namespace WindowsFormsApp1
         private void lineDrawButton_Click(object sender, EventArgs e)
         {
             var paper = board.CreateGraphics();
-            var pen = new Pen(Color.Aqua, Convert.ToInt32(PenWidth.Text));
+            var pen = new Pen(colorDialog1.Color, Convert.ToInt32(PenWidth.Text));
             paper.DrawLine(pen, Convert.ToInt32(LineX.Text), Convert.ToInt32(LineY.Text), Convert.ToInt32(LineX2.Text), Convert.ToInt32(LineY2.Text));
         }
 
         private void TriangleButton_Click(object sender, EventArgs e)
         {
             var paper = board.CreateGraphics();
-            var pen = new Pen(Color.Aqua, Convert.ToInt32(PenWidth.Text));
+            var pen = new Pen(colorDialog1.Color, Convert.ToInt32(PenWidth.Text));
             paper.DrawLine(pen, Convert.ToInt32(triangleX.Text), Convert.ToInt32(triangleY.Text), Convert.ToInt32(triangleX2.Text), Convert.ToInt32(triangleY2.Text));
             paper.DrawLine(pen, Convert.ToInt32(triangleX2.Text), Convert.ToInt32(triangleY2.Text), Convert.ToInt32(triangleX3.Text), Convert.ToInt32(triangleY3.Text));
             paper.DrawLine(pen, Convert.ToInt32(triangleX3.Text), Convert.ToInt32(triangleY3.Text), Convert.ToInt32(triangleX.Text), Convert.ToInt32(triangleY.Text));
@@ -69,7 +67,7 @@ namespace WindowsFormsApp1
         private void rectangleButton_Click(object sender, EventArgs e)
         {
             var paper = board.CreateGraphics();
-            var pen = new Pen(Color.Aqua, Convert.ToInt32(PenWidth.Text));
+            var pen = new Pen(colorDialog1.Color, Convert.ToInt32(PenWidth.Text));
             paper.DrawRectangle(pen, Convert.ToInt32(rectangleX.Text), Convert.ToInt32(rectangleY.Text), Convert.ToInt32(rectangleWidth.Text), Convert.ToInt32(rectangleHeight.Text));
         }
 
@@ -102,20 +100,25 @@ namespace WindowsFormsApp1
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.Filter = "PNG(*.PNG)|*.png";
-            saveFileDialog1.FileName = "mydraw";
+             using(var bmp = new Bitmap(board.Width, board.Height))
+             {
+                 board.DrawToBitmap(bmp, new Rectangle(0,0, bmp.Width, bmp.Height));
+                 bmp.Save(@"images/" + "Test.bmp");
 
-            saveFileDialog1.ShowDialog();
-            if (saveFileDialog1.FileName != "")
-                draw.Save(saveFileDialog1.FileName);
-        }
-
+             }
+        }     
         private void LoadButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                board.Image = Image.FromFile(openFileDialog1.FileName);
+                //board.Image = Image.FromFile(openFileDialog1.FileName);
             }
+        }
+
+        private void colorBut_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            colorBut.BackColor = colorDialog1.Color;
         }
     }
     public class Figure

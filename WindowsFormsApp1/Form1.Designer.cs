@@ -83,6 +83,7 @@ namespace WindowsFormsApp1
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.LoadButton = new System.Windows.Forms.Button();
+            this.colorBut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // circleButton
@@ -567,11 +568,21 @@ namespace WindowsFormsApp1
             this.LoadButton.UseVisualStyleBackColor = true;
             this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
             // 
+            // colorBut
+            // 
+            this.colorBut.Location = new System.Drawing.Point(705, 300);
+            this.colorBut.Name = "colorBut";
+            this.colorBut.Size = new System.Drawing.Size(75, 23);
+            this.colorBut.TabIndex = 21;
+            this.colorBut.UseVisualStyleBackColor = true;
+            this.colorBut.Click += new System.EventHandler(this.colorBut_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 539);
+            this.Controls.Add(this.colorBut);
             this.Controls.Add(this.PenWidthText);
             this.Controls.Add(this.PenWidth);
             this.Controls.Add(this.LoadButton);
@@ -687,6 +698,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button LoadButton;
+        private System.Windows.Forms.Button colorBut;
     }
 }
 
