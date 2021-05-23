@@ -100,10 +100,10 @@ namespace WindowsFormsApp1
             // board
             // 
             this.board.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.board.Location = new System.Drawing.Point(3, -4);
+            this.board.Location = new System.Drawing.Point(-1, -4);
             this.board.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.board.Name = "board";
-            this.board.Size = new System.Drawing.Size(646, 544);
+            this.board.Size = new System.Drawing.Size(650, 544);
             this.board.TabIndex = 1;
             this.board.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             // 
@@ -570,9 +570,9 @@ namespace WindowsFormsApp1
             // 
             // colorBut
             // 
-            this.colorBut.Location = new System.Drawing.Point(705, 300);
+            this.colorBut.Location = new System.Drawing.Point(870, 468);
             this.colorBut.Name = "colorBut";
-            this.colorBut.Size = new System.Drawing.Size(75, 23);
+            this.colorBut.Size = new System.Drawing.Size(25, 23);
             this.colorBut.TabIndex = 21;
             this.colorBut.UseVisualStyleBackColor = true;
             this.colorBut.Click += new System.EventHandler(this.colorBut_Click);

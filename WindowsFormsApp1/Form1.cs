@@ -101,11 +101,11 @@ namespace WindowsFormsApp1
         private void saveButton_Click(object sender, EventArgs e)
         {
              using(var bmp = new Bitmap(board.Width, board.Height))
-             {
-                 board.DrawToBitmap(bmp, new Rectangle(0,0, bmp.Width, bmp.Height));
-                 bmp.Save(@"images/" + "Test.bmp");
+              {
+                  board.DrawToBitmap(bmp, new Rectangle(0,0, bmp.Width, bmp.Height));
+                  bmp.Save(@"images/" + "Test.bmp");
 
-             }
+                  }
         }     
         private void LoadButton_Click(object sender, EventArgs e)
         {
