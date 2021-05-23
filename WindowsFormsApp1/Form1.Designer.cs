@@ -78,6 +78,9 @@ namespace WindowsFormsApp1
             this.rectangleButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.saveButton = new System.Windows.Forms.Button();
+            this.PenWidth = new System.Windows.Forms.TextBox();
+            this.PenWidthText = new System.Windows.Forms.Label();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.SuspendLayout();
             // 
             // circleButton
@@ -530,11 +533,30 @@ namespace WindowsFormsApp1
             this.saveButton.Text = "save";
             this.saveButton.UseVisualStyleBackColor = true;
             // 
+            // PenWidth
+            // 
+            this.PenWidth.Location = new System.Drawing.Point(870, 439);
+            this.PenWidth.Name = "PenWidth";
+            this.PenWidth.Size = new System.Drawing.Size(100, 22);
+            this.PenWidth.TabIndex = 19;
+            this.PenWidth.Text = "5";
+            // 
+            // PenWidthText
+            // 
+            this.PenWidthText.AutoSize = true;
+            this.PenWidthText.Location = new System.Drawing.Point(870, 416);
+            this.PenWidthText.Name = "PenWidthText";
+            this.PenWidthText.Size = new System.Drawing.Size(69, 17);
+            this.PenWidthText.TabIndex = 20;
+            this.PenWidthText.Text = "Pen width";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 539);
+            this.Controls.Add(this.PenWidthText);
+            this.Controls.Add(this.PenWidth);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.rectangleButton);
             this.Controls.Add(this.rectangleText);
@@ -642,6 +664,9 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button rectangleButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.TextBox PenWidth;
+        private System.Windows.Forms.Label PenWidthText;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 
