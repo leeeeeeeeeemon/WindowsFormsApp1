@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.circleButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.board = new System.Windows.Forms.Panel();
             this.circleRadius = new System.Windows.Forms.TextBox();
             this.circleX = new System.Windows.Forms.TextBox();
             this.circleY = new System.Windows.Forms.TextBox();
@@ -81,6 +81,8 @@ namespace WindowsFormsApp1
             this.PenWidth = new System.Windows.Forms.TextBox();
             this.PenWidthText = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.LoadButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // circleButton
@@ -94,15 +96,15 @@ namespace WindowsFormsApp1
             this.circleButton.UseVisualStyleBackColor = true;
             this.circleButton.Click += new System.EventHandler(this.circleButton_Click);
             // 
-            // panel1
+            // board
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Location = new System.Drawing.Point(3, -4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(646, 544);
-            this.panel1.TabIndex = 1;
-            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
+            this.board.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.board.Location = new System.Drawing.Point(3, -4);
+            this.board.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.board.Name = "board";
+            this.board.Size = new System.Drawing.Size(646, 544);
+            this.board.TabIndex = 1;
+            this.board.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             // 
             // circleRadius
             // 
@@ -532,6 +534,7 @@ namespace WindowsFormsApp1
             this.saveButton.TabIndex = 18;
             this.saveButton.Text = "save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // PenWidth
             // 
@@ -550,6 +553,20 @@ namespace WindowsFormsApp1
             this.PenWidthText.TabIndex = 20;
             this.PenWidthText.Text = "Pen width";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // LoadButton
+            // 
+            this.LoadButton.Location = new System.Drawing.Point(705, 468);
+            this.LoadButton.Name = "LoadButton";
+            this.LoadButton.Size = new System.Drawing.Size(75, 23);
+            this.LoadButton.TabIndex = 18;
+            this.LoadButton.Text = "load";
+            this.LoadButton.UseVisualStyleBackColor = true;
+            this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -557,6 +574,7 @@ namespace WindowsFormsApp1
             this.ClientSize = new System.Drawing.Size(1005, 539);
             this.Controls.Add(this.PenWidthText);
             this.Controls.Add(this.PenWidth);
+            this.Controls.Add(this.LoadButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.rectangleButton);
             this.Controls.Add(this.rectangleText);
@@ -603,7 +621,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.rectangleWidth);
             this.Controls.Add(this.circleX);
             this.Controls.Add(this.circleRadius);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.board);
             this.Controls.Add(this.circleButton);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
@@ -616,7 +634,7 @@ namespace WindowsFormsApp1
         #endregion
 
         private System.Windows.Forms.Button circleButton;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel board;
         private System.Windows.Forms.TextBox circleRadius;
         private System.Windows.Forms.TextBox circleX;
         private System.Windows.Forms.TextBox circleY;
@@ -667,6 +685,8 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox PenWidth;
         private System.Windows.Forms.Label PenWidthText;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button LoadButton;
     }
 }
 
